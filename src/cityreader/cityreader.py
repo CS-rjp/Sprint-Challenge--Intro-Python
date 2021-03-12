@@ -66,7 +66,7 @@ def cityreader(cities=[]):
     print(i)
     new_city = City(i['name'], float(i['lat']),float(i['lon']))
     print(new_city)
-    cities.append.(new_city)
+    cities.append(new_city)
     print(cities)
 
     # Iterate over the rows.
