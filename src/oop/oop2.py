@@ -45,9 +45,9 @@ for vehicle in vehicles:
     # print drive() call on each vehicle
     print(vehicle.drive())
 
-print_drive = [vehicle.drive() for vehicle in vehicles]
+# print_drive = [vehicle.drive() for vehicle in vehicles]
 
-print_drive = list(map(lambda x: x.drive(), vehicles))
+# print_drive = list(map(lambda x: x.drive(), vehicles))
 
-print(print_drive)
+# print(print_drive)
 
