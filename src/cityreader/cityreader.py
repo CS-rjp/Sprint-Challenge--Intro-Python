@@ -1,5 +1,19 @@
+import csv
+import pandas as pd
+from collections import namedtuple
+
+
 # Create a class to hold a city location. Call the class "City". It should have
 # fields for name, lat and lon (representing latitude and longitude).
+class City:
+  def __init__(self, name, lat, lon):
+    self.name = name
+    self.lat = lat  # latitude
+    self.lon = lon  # longitude
+
+
+  def __repr__(self):
+    return (f'{self.name}, {self.lat}, {self.lng}')
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -14,15 +28,59 @@
 #
 # Note that the first line of the CSV is header that describes the fields--this
 # should not be loaded into a City object.
+
+# define list
 cities = []
 
 def cityreader(cities=[]):
-  # TODO Implement the functionality to read from the 'cities.csv' file
-  # Ensure that the lat and lon valuse are all floats
-  # For each city record, create a new City instance and add it to the 
-  # `cities` list
+  """
+  read from the 'cities.csv' file; 
+  each record should be a City instance;
+  parse header from CSV on import;
+
+  return a list with all City instances
+  """
+  # Open the csv file.
+  # with open('cities.csv', 'r') as my_file:
+    # Create a csv.reader.
+    # reader = csv.reader(my_file)
+  
+  file_path = 'src/cityreader/cities.csv'
+  df = pd.read_csv(file_path)
+
+  dict_list = []
+
+  # iterate over each row in df
+  for i in df.index:
+    # create empty dictionary for each row
+    dict_row = {}
+    # populate 
+    dict_row['name'] = df.at[i, 'city']
+    dict_row['lat'] = df.at[i, 'lat']
+    dict_row['lon'] = df.at[i, 'lng']
+
+    # append
+    dict_list.append(dict_row)
+    # print(dict_list)
+  for i in dict_list:
+    print(i)
+    new_city = City(i['name'], i['lat'],i['lon'])
+    print(new_city)
+    cities.append.(new_city)
+    print(cities)
+
+    # Iterate over the rows.
+    # my_dict = {rows[0] for in reader}
+    # print(my_dict)
+
+  # Convert the numbers to floats.
+
+  # Create a City instance and pass the name, lat and lng numbers.
+
+  # Finally append this student instance to the student_list.
     
-    return cities
+  # return list with all City instances
+  return cities
 
 cityreader(cities)
 
